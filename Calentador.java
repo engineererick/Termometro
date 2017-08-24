@@ -2,29 +2,49 @@ public class Calentador
 {
     private int temperatura;
     private int i;
+    private int min;
+    private int max;
     
-    public Calentador()
+    public Calentador(int max, int min)
     {
+        min=min;
+        max=max;
         temperatura = 15;
         i = 3;
     }
     
-    public int Calentar()
+    public void Calentar()
     {
-        if(temperatura < 30)
-            temperatura = temperatura + i;
+        int cambio;
+        cambio = temperatura + i;
+        
+        if(cambio < max)
+        {
+            temperatura = cambio;
+        }
+    }
+    
+    public void Enfriar()
+    {
+        int cambio;
+        cambio = temperatura - i;
+        if(cambio > min)
+        {
+            temperatura = cambio;
+        }
+    }
+    
+    public int Termometro()
+    {
         return temperatura;
     }
     
-    public int Enfriar()
+    public void Aumenta(int aumento)
     {
-        if(temperatura > -10)
-            temperatura = temperatura - i;
-        return temperatura;
-    }
-    
-    public void Termometro()
-    {
-        System.out.println("La temperatura actual es: "+temperatura);
+        if(aumento>0)
+        {
+            i=aumento;
+        }
     }
 }
+  
